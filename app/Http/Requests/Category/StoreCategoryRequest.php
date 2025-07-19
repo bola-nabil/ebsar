@@ -25,7 +25,14 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:png,jpg|max:2048',
+            'image' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'image.mimes' => 'The image field must be png, jpg, jpeg',
         ];
     }
 }

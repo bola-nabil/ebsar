@@ -15,7 +15,7 @@ class BookController extends Controller
     use ResponseMessages, UploadFiles;
     public function index()
     {
-        $books = Book::with(['publisher','image', 'file'])->get();
+        $books = Book::with(['publisher', 'authors', 'categories' ,'image', 'file',])->get();
 
         return $this->successMessage('success', 'books', $books);
     }
@@ -33,7 +33,7 @@ class BookController extends Controller
     public function search($title)
     {
     
-        $books = Book::where('title', 'like', '%' . $title . '%')->get();
+        $books = Book::with(['publisher', 'authors', 'categories', 'image', 'file'])->where('title', 'like', '%' . $title . '%')->get();
         if($books->isEmpty())
             return $this->errorMessage('error', 'message', "Book Not Found");
 

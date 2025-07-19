@@ -13,7 +13,7 @@ class AuthorController extends Controller
     use ResponseMessages;
     public function index()
     {
-        $authors = Author::all();
+        $authors = Author::with('books')->get();
         return $this->successMessage('success', 'authors', $authors);
     }
 
@@ -25,9 +25,8 @@ class AuthorController extends Controller
 
     public function show($id)
     {
-
         try {
-            $author = Author::with('books')->findOrFail($id);
+            $author = Author::with('books.image')->findOrFail($id);
 
             return $this->successMessage('success', 'author', $author);
 

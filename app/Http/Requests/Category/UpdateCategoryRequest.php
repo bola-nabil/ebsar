@@ -28,4 +28,12 @@ class UpdateCategoryRequest extends FormRequest
             'image' => 'nullable|image|mimes:png,jpg|max:2048',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'image.mimes' => 'The image field must be png, jpg, jpeg',
+        ];
+    }
+
 }

@@ -35,7 +35,7 @@ class CategoryController extends Controller
     public function show($id)
     {
         try {
-            $category = Category::with('books')->findOrFail($id);
+            $category = Category::with('books.image')->findOrFail($id);
             return $this->successMessage('success', 'category', $category);
         } catch(ModelNotFoundException $e) {
             return $this->errorMessage('error', 'message', 'Category Not Found');

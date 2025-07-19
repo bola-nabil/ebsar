@@ -13,7 +13,7 @@ class PublisherController extends Controller
     use ResponseMessages;
     public function index()
     {
-        $publishers = Publisher::all();
+        $publishers = Publisher::with('books')->get();
         return $this->successMessage('success', 'publishers', $publishers);
     }
 
@@ -26,7 +26,7 @@ class PublisherController extends Controller
     public function show($id)
     {
         try {
-            $publisher = Publisher::with('books')->findOrFail($id);
+            $publisher = Publisher::with('books.image')->findOrFail($id);
             return $this->successMessage('success', 'publisher', $publisher);
     
         } catch(ModelNotFoundException $e) {
