@@ -36,4 +36,4 @@ RUN composer install --no-interaction --prefer-dist --optimize-autoloader
 EXPOSE 9000
 
 # Run Laravel tasks and start PHP-FPM
-CMD php artisan config:cache && php artisan migrate --force && php-fpm
+CMD php artisan config:cache && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=8080
