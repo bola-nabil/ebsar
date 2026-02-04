@@ -25,7 +25,7 @@ composer global require laravel/installer
 
 ### 3. Clone the Project & Navigate to It
 ```bash
-git clone https://github.com/your-username/ebsar.git
+git clone https://github.com/bola-nabil/ebsar.git
 cd ebsar
 ```
 
