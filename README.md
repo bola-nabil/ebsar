@@ -43,6 +43,7 @@ Then edit the `.env` file and set your local database credentials and other envi
 ### 6. Generate Application Key
 ```bash
 php artisan key:generate
+php artisan jwt:secret
 ```
 
 ### 7. Run Migrations
